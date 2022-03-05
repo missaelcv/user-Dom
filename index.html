@@ -1,11 +1,31 @@
-div id="app">
-  <h1>
-    Mis Cursos Realizados 
-  </h1>
-    <p>
-      <input type="text" placeholder="Titulo del curso" v-model="title"/>
-    </p>
-
-    <p>
-        <input type="number" placeholder="Horas Realizadas" v-model="title"/>
+<div id="app">
+    <h1>
+      Mis Cursos de Platzi💚
+    </h1>
+      <p>
+        <input type="text" placeholder="Titulo del curso" v-model="title"/>
       </p>
+      <p>
+        <input type="number" placeholder="Horas" v-model="time"/>
+      </p>
+      <p>
+        <button @click="addCourse">Guardar Curso</button>
+      </p>
+    </fieldset>
+    <div>
+      <h3>Lista de Cursos</h3>
+      <p class="red" v-show="!courses.length">Aun no has realizado cursos</p>
+      <div v-show="courses.length">
+        <ol>
+          <li v-for="c in courses"> 
+              
+            <span>{{ c.title }} - {{ c.time }}hs.</span></li>
+        </ol>
+        <hr/>
+        <p>
+          Llevo <strong>{{ totalTime }}</strong> horas aprendiendo en Platzi.
+          <b>#NuncaParesDeAprender 💚</b>
+        </p>
+      </div>
+    </div>
+  </div>
